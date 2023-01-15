@@ -99,15 +99,15 @@ class ComicController extends Controller
         $form_data = $request->all();
         //se il titolo è stato modifcato genero un nuovo slug altrimeti utilizzo il vecchio slug
 
-        if($form_data['title'] != $comic->title){
-            $form_data['slug'] = Comic::generateSlug($form_data['title']);
-        }else{
-            $form_data['slug'] = $comic->slug;
-        }
+        //if($form_data['title'] != $comic->title){
+            //$form_data['slug'] = Comic::generateSlug($form_data['title']);
+        //}else{
+            //$form_data['slug'] = $comic->slug;
+        //}
 
-        $comic->update($form_data);
+        //$comic->update($form_data);
 
-        return redirect()->route('comics.show',$comic);
+        //return redirect()->route('comics.show',$comic);
     }
 
 
@@ -119,6 +119,8 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comic->delete();
+        //torniamo all'index
+        return redirect()->route('comics.index');
     }
 }
