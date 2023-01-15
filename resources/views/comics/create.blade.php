@@ -5,7 +5,8 @@
     <h1>inserisci un nuovo fumetto</h1>
 
     <form action="{{route('comics.store')}}" method="POST">
-    @csrf
+
+        @csrf
 
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
